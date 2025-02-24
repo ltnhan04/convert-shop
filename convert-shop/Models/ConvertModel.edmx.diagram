@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0c8b592d204460abb305206a40fea29" Name="Diagram1">
+        <EntityTypeShape EntityType="ConvertManagementModel.Category" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Coupon" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.CouponType" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Customer" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.CustomerRanking" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.CustomerType" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Message" Width="1.5" PointX="8.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.MessageStatu" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Order" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.OrderItem" Width="1.5" PointX="10.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.OrderStatu" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.PaymentMethod" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Product" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.ProductColor" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.ProductImage" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.ProductStatu" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Review" Width="1.5" PointX="13.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConvertManagementModel.Role" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Coupon_CouponType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Order_Coupon" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Customer_CustomerRanking" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Customer_CustomerType" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Customer_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Message_Receiver" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Message_Sender" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Review_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Message_MessageStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Order_PaymentMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_OrderItem_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_OrderItem_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Product_ProductColor" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Product_ProductImage" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Product_ProductStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.FK_Review_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="ConvertManagementModel.CouponProduct" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

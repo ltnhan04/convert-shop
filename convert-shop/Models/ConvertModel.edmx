@@ -1,0 +1,1417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ConvertManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="category_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="coupon_id" />
+          </Key>
+          <Property Name="coupon_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="coupon_type_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="coupon_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="min_order_quantity" Type="float" Nullable="false" />
+          <Property Name="used_count" Type="int" Nullable="false" />
+          <Property Name="discount_value" Type="int" Nullable="false" />
+          <Property Name="expiry_date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="max_usage" Type="int" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CouponProduct">
+          <Key>
+            <PropertyRef Name="coupon_id" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="coupon_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CouponType">
+          <Key>
+            <PropertyRef Name="coupon_type_id" />
+          </Key>
+          <Property Name="coupon_type_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="coupon_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="customer_type_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="role_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="loyaltyPoints" Type="int" Nullable="false" />
+          <Property Name="usedPoint" Type="int" Nullable="false" />
+          <Property Name="customer_ranking_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerRanking">
+          <Key>
+            <PropertyRef Name="customer_ranking_id" />
+          </Key>
+          <Property Name="customer_ranking_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_ranking_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="required_points" Type="int" Nullable="false" />
+          <Property Name="voucher_discount_percentage" Type="int" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerType">
+          <Key>
+            <PropertyRef Name="customer_type_id" />
+          </Key>
+          <Property Name="customer_type_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="msg_status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="sender_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="receiver_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="sentAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageStatus">
+          <Key>
+            <PropertyRef Name="msg_status_id" />
+          </Key>
+          <Property Name="msg_status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="msg_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="coupon_id" Type="nvarchar" MaxLength="10" />
+          <Property Name="payment_method_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="order_status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="total" Type="float" Nullable="false" />
+          <Property Name="note" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="order_item_id" />
+          </Key>
+          <Property Name="order_item_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="order_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="unit_price" Type="float" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="order_status_id" />
+          </Key>
+          <Property Name="order_status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="order_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="payment_method_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="product_description" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="product_price" Type="int" Nullable="false" />
+          <Property Name="category_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="image_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="color_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductColor">
+          <Key>
+            <PropertyRef Name="color_id" />
+          </Key>
+          <Property Name="color_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="color_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="color_code" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="image_url_1" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="image_url_2" Type="nvarchar" MaxLength="255" />
+          <Property Name="image_url_3" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductStatus">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="status_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="customer_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="rating" Type="float" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Coupon_CouponType">
+          <End Role="CouponType" Type="Self.CouponType" Multiplicity="1" />
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponType">
+              <PropertyRef Name="coupon_type_id" />
+            </Principal>
+            <Dependent Role="Coupon">
+              <PropertyRef Name="coupon_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponProduct_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="1" />
+          <End Role="CouponProduct" Type="Self.CouponProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="coupon_id" />
+            </Principal>
+            <Dependent Role="CouponProduct">
+              <PropertyRef Name="coupon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="CouponProduct" Type="Self.CouponProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="CouponProduct">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerRanking">
+          <End Role="CustomerRanking" Type="Self.CustomerRanking" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerRanking">
+              <PropertyRef Name="customer_ranking_id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="customer_ranking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerType">
+          <End Role="CustomerType" Type="Self.CustomerType" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerType">
+              <PropertyRef Name="customer_type_id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="customer_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_MessageStatus">
+          <End Role="MessageStatus" Type="Self.MessageStatus" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageStatus">
+              <PropertyRef Name="msg_status_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="msg_status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Receiver">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="receiver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Sender">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="coupon_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="coupon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="order_status_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="order_status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="payment_method_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductColor">
+          <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductColor">
+              <PropertyRef Name="color_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="color_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductImage">
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductImage">
+              <PropertyRef Name="image_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductStatus">
+          <End Role="ProductStatus" Type="Self.ProductStatus" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductStatus">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConvertManagementModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coupon" EntityType="Self.Coupon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CouponProduct" EntityType="Self.CouponProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CouponType" EntityType="Self.CouponType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerRanking" EntityType="Self.CustomerRanking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerType" EntityType="Self.CustomerType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageStatus" EntityType="Self.MessageStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductColor" EntityType="Self.ProductColor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductStatus" EntityType="Self.ProductStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Coupon_CouponType" Association="Self.FK_Coupon_CouponType">
+            <End Role="CouponType" EntitySet="CouponType" />
+            <End Role="Coupon" EntitySet="Coupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponProduct_Coupon" Association="Self.FK_CouponProduct_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="CouponProduct" EntitySet="CouponProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponProduct_Product" Association="Self.FK_CouponProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CouponProduct" EntitySet="CouponProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerRanking" Association="Self.FK_Customer_CustomerRanking">
+            <End Role="CustomerRanking" EntitySet="CustomerRanking" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerType" Association="Self.FK_Customer_CustomerType">
+            <End Role="CustomerType" EntitySet="CustomerType" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Role" Association="Self.FK_Customer_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_MessageStatus" Association="Self.FK_Message_MessageStatus">
+            <End Role="MessageStatus" EntitySet="MessageStatus" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Receiver" Association="Self.FK_Message_Receiver">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Sender" Association="Self.FK_Message_Sender">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Coupon" Association="Self.FK_Order_Coupon">
+            <End Role="Coupon" EntitySet="Coupon" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_PaymentMethod" Association="Self.FK_Order_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Self.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Product" Association="Self.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderItem" EntitySet="OrderItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductColor" Association="Self.FK_Product_ProductColor">
+            <End Role="ProductColor" EntitySet="ProductColor" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductImage" Association="Self.FK_Product_ProductImage">
+            <End Role="ProductImage" EntitySet="ProductImage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductStatus" Association="Self.FK_Product_ProductStatus">
+            <End Role="ProductStatus" EntitySet="ProductStatus" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Customer" Association="Self.FK_Review_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Product" Association="Self.FK_Review_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConvertManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="coupon_id" />
+          </Key>
+          <Property Name="coupon_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coupon_type_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coupon_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="min_order_quantity" Type="Double" Nullable="false" />
+          <Property Name="used_count" Type="Int32" Nullable="false" />
+          <Property Name="discount_value" Type="Int32" Nullable="false" />
+          <Property Name="expiry_date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="max_usage" Type="Int32" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="CouponType" Relationship="Self.FK_Coupon_CouponType" FromRole="Coupon" ToRole="CouponType" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Coupon" FromRole="Coupon" ToRole="Order" />
+          <NavigationProperty Name="Products" Relationship="Self.CouponProduct" FromRole="Coupon" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="CouponType">
+          <Key>
+            <PropertyRef Name="coupon_type_id" />
+          </Key>
+          <Property Name="coupon_type_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coupon_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Coupons" Relationship="Self.FK_Coupon_CouponType" FromRole="CouponType" ToRole="Coupon" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_type_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="loyaltyPoints" Type="Int32" Nullable="false" />
+          <Property Name="usedPoint" Type="Int32" Nullable="false" />
+          <Property Name="customer_ranking_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="CustomerRanking" Relationship="Self.FK_Customer_CustomerRanking" FromRole="Customer" ToRole="CustomerRanking" />
+          <NavigationProperty Name="CustomerType" Relationship="Self.FK_Customer_CustomerType" FromRole="Customer" ToRole="CustomerType" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Customer_Role" FromRole="Customer" ToRole="Role" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Message_Receiver" FromRole="Customer" ToRole="Message" />
+          <NavigationProperty Name="Messages1" Relationship="Self.FK_Message_Sender" FromRole="Customer" ToRole="Message" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Customer" FromRole="Customer" ToRole="Review" />
+        </EntityType>
+        <EntityType Name="CustomerRanking">
+          <Key>
+            <PropertyRef Name="customer_ranking_id" />
+          </Key>
+          <Property Name="customer_ranking_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_ranking_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="required_points" Type="Int32" Nullable="false" />
+          <Property Name="voucher_discount_percentage" Type="Int32" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_CustomerRanking" FromRole="CustomerRanking" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerType">
+          <Key>
+            <PropertyRef Name="customer_type_id" />
+          </Key>
+          <Property Name="customer_type_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_CustomerType" FromRole="CustomerType" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="msg_status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sender_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receiver_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sentAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Message_Receiver" FromRole="Message" ToRole="Customer" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK_Message_Sender" FromRole="Message" ToRole="Customer" />
+          <NavigationProperty Name="MessageStatu" Relationship="Self.FK_Message_MessageStatus" FromRole="Message" ToRole="MessageStatus" />
+        </EntityType>
+        <EntityType Name="MessageStatu">
+          <Key>
+            <PropertyRef Name="msg_status_id" />
+          </Key>
+          <Property Name="msg_status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="msg_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Message_MessageStatus" FromRole="MessageStatus" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="coupon_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="payment_method_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Coupon" Relationship="Self.FK_Order_Coupon" FromRole="Order" ToRole="Coupon" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="OrderStatu" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
+          <NavigationProperty Name="PaymentMethod" Relationship="Self.FK_Order_PaymentMethod" FromRole="Order" ToRole="PaymentMethod" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="order_item_id" />
+          </Key>
+          <Property Name="order_item_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="unit_price" Type="Double" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_OrderItem_Product" FromRole="OrderItem" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="order_status_id" />
+          </Key>
+          <Property Name="order_status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="payment_method_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_PaymentMethod" FromRole="PaymentMethod" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_price" Type="Int32" Nullable="false" />
+          <Property Name="category_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItem_Product" FromRole="Product" ToRole="OrderItem" />
+          <NavigationProperty Name="ProductColor" Relationship="Self.FK_Product_ProductColor" FromRole="Product" ToRole="ProductColor" />
+          <NavigationProperty Name="ProductImage" Relationship="Self.FK_Product_ProductImage" FromRole="Product" ToRole="ProductImage" />
+          <NavigationProperty Name="ProductStatu" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Product" FromRole="Product" ToRole="Review" />
+          <NavigationProperty Name="Coupons" Relationship="Self.CouponProduct" FromRole="Product" ToRole="Coupon" />
+        </EntityType>
+        <EntityType Name="ProductColor">
+          <Key>
+            <PropertyRef Name="color_id" />
+          </Key>
+          <Property Name="color_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color_code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductColor" FromRole="ProductColor" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_url_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image_url_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="image_url_3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductImage" FromRole="ProductImage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductStatu">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductStatus" FromRole="ProductStatus" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="customer_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rating" Type="Double" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Review_Customer" FromRole="Review" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Review_Product" FromRole="Review" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Role" FromRole="Role" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coupon_CouponType">
+          <End Role="CouponType" Type="Self.CouponType" Multiplicity="1" />
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponType">
+              <PropertyRef Name="coupon_type_id" />
+            </Principal>
+            <Dependent Role="Coupon">
+              <PropertyRef Name="coupon_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Coupon">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coupon">
+              <PropertyRef Name="coupon_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="coupon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerRanking">
+          <End Role="CustomerRanking" Type="Self.CustomerRanking" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerRanking">
+              <PropertyRef Name="customer_ranking_id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="customer_ranking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CustomerType">
+          <End Role="CustomerType" Type="Self.CustomerType" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerType">
+              <PropertyRef Name="customer_type_id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="customer_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Receiver">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="receiver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_Sender">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="sender_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Message_MessageStatus">
+          <End Role="MessageStatus" Type="Self.MessageStatu" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageStatus">
+              <PropertyRef Name="msg_status_id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="msg_status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="order_status_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="order_status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_PaymentMethod">
+          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="payment_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="payment_method_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="OrderItem" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductColor">
+          <End Role="ProductColor" Type="Self.ProductColor" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductColor">
+              <PropertyRef Name="color_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="color_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductImage">
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductImage">
+              <PropertyRef Name="image_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="image_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductStatus">
+          <End Role="ProductStatus" Type="Self.ProductStatu" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductStatus">
+              <PropertyRef Name="status_id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CouponProduct">
+          <End Role="Coupon" Type="Self.Coupon" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ConvertManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Coupons" EntityType="Self.Coupon" />
+          <EntitySet Name="CouponTypes" EntityType="Self.CouponType" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerRankings" EntityType="Self.CustomerRanking" />
+          <EntitySet Name="CustomerTypes" EntityType="Self.CustomerType" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="MessageStatus" EntityType="Self.MessageStatu" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethod" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductColors" EntityType="Self.ProductColor" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImage" />
+          <EntitySet Name="ProductStatus" EntityType="Self.ProductStatu" />
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coupon_CouponType" Association="Self.FK_Coupon_CouponType">
+            <End Role="CouponType" EntitySet="CouponTypes" />
+            <End Role="Coupon" EntitySet="Coupons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Coupon" Association="Self.FK_Order_Coupon">
+            <End Role="Coupon" EntitySet="Coupons" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerRanking" Association="Self.FK_Customer_CustomerRanking">
+            <End Role="CustomerRanking" EntitySet="CustomerRankings" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CustomerType" Association="Self.FK_Customer_CustomerType">
+            <End Role="CustomerType" EntitySet="CustomerTypes" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Role" Association="Self.FK_Customer_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Receiver" Association="Self.FK_Message_Receiver">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_Sender" Association="Self.FK_Message_Sender">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Customer" Association="Self.FK_Review_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Message_MessageStatus" Association="Self.FK_Message_MessageStatus">
+            <End Role="MessageStatus" EntitySet="MessageStatus" />
+            <End Role="Message" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_PaymentMethod" Association="Self.FK_Order_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Order" Association="Self.FK_OrderItem_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_Product" Association="Self.FK_OrderItem_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductColor" Association="Self.FK_Product_ProductColor">
+            <End Role="ProductColor" EntitySet="ProductColors" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductImage" Association="Self.FK_Product_ProductImage">
+            <End Role="ProductImage" EntitySet="ProductImages" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductStatus" Association="Self.FK_Product_ProductStatus">
+            <End Role="ProductStatus" EntitySet="ProductStatus" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Product" Association="Self.FK_Review_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="CouponProduct" Association="Self.CouponProduct">
+            <End Role="Coupon" EntitySet="Coupons" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConvertManagementModelStoreContainer" CdmEntityContainer="ConvertManagementEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coupons">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Coupon">
+              <MappingFragment StoreEntitySet="Coupon">
+                <ScalarProperty Name="coupon_id" ColumnName="coupon_id" />
+                <ScalarProperty Name="coupon_type_id" ColumnName="coupon_type_id" />
+                <ScalarProperty Name="coupon_name" ColumnName="coupon_name" />
+                <ScalarProperty Name="min_order_quantity" ColumnName="min_order_quantity" />
+                <ScalarProperty Name="used_count" ColumnName="used_count" />
+                <ScalarProperty Name="discount_value" ColumnName="discount_value" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="max_usage" ColumnName="max_usage" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CouponTypes">
+            <EntityTypeMapping TypeName="ConvertManagementModel.CouponType">
+              <MappingFragment StoreEntitySet="CouponType">
+                <ScalarProperty Name="coupon_type_id" ColumnName="coupon_type_id" />
+                <ScalarProperty Name="coupon_type" ColumnName="coupon_type" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="customer_type_id" ColumnName="customer_type_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="loyaltyPoints" ColumnName="loyaltyPoints" />
+                <ScalarProperty Name="usedPoint" ColumnName="usedPoint" />
+                <ScalarProperty Name="customer_ranking_id" ColumnName="customer_ranking_id" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerRankings">
+            <EntityTypeMapping TypeName="ConvertManagementModel.CustomerRanking">
+              <MappingFragment StoreEntitySet="CustomerRanking">
+                <ScalarProperty Name="customer_ranking_id" ColumnName="customer_ranking_id" />
+                <ScalarProperty Name="customer_ranking_name" ColumnName="customer_ranking_name" />
+                <ScalarProperty Name="required_points" ColumnName="required_points" />
+                <ScalarProperty Name="voucher_discount_percentage" ColumnName="voucher_discount_percentage" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTypes">
+            <EntityTypeMapping TypeName="ConvertManagementModel.CustomerType">
+              <MappingFragment StoreEntitySet="CustomerType">
+                <ScalarProperty Name="customer_type_id" ColumnName="customer_type_id" />
+                <ScalarProperty Name="customer_type" ColumnName="customer_type" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="message_id" ColumnName="message_id" />
+                <ScalarProperty Name="msg_status_id" ColumnName="msg_status_id" />
+                <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+                <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="sentAt" ColumnName="sentAt" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageStatus">
+            <EntityTypeMapping TypeName="ConvertManagementModel.MessageStatu">
+              <MappingFragment StoreEntitySet="MessageStatus">
+                <ScalarProperty Name="msg_status_id" ColumnName="msg_status_id" />
+                <ScalarProperty Name="msg_status" ColumnName="msg_status" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="coupon_id" ColumnName="coupon_id" />
+                <ScalarProperty Name="payment_method_id" ColumnName="payment_method_id" />
+                <ScalarProperty Name="order_status_id" ColumnName="order_status_id" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="ConvertManagementModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="order_item_id" ColumnName="order_item_id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="ConvertManagementModel.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="order_status_id" ColumnName="order_status_id" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="ConvertManagementModel.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethod">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="payment_method_name" ColumnName="payment_method_name" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="image_id" ColumnName="image_id" />
+                <ScalarProperty Name="color_id" ColumnName="color_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductColors">
+            <EntityTypeMapping TypeName="ConvertManagementModel.ProductColor">
+              <MappingFragment StoreEntitySet="ProductColor">
+                <ScalarProperty Name="color_id" ColumnName="color_id" />
+                <ScalarProperty Name="color_name" ColumnName="color_name" />
+                <ScalarProperty Name="color_code" ColumnName="color_code" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="ConvertManagementModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="image_id" ColumnName="image_id" />
+                <ScalarProperty Name="image_url_1" ColumnName="image_url_1" />
+                <ScalarProperty Name="image_url_2" ColumnName="image_url_2" />
+                <ScalarProperty Name="image_url_3" ColumnName="image_url_3" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductStatus">
+            <EntityTypeMapping TypeName="ConvertManagementModel.ProductStatu">
+              <MappingFragment StoreEntitySet="ProductStatus">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="status_name" ColumnName="status_name" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ConvertManagementModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CouponProduct" TypeName="ConvertManagementModel.CouponProduct" StoreEntitySet="CouponProduct">
+            <EndProperty Name="Coupon">
+              <ScalarProperty Name="coupon_id" ColumnName="coupon_id" />
+            </EndProperty>
+            <EndProperty Name="Product">
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Uni\\Junior\\TMDT\\convert-shop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-24T07:55:29.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAEwFAAAAAAAAAAAewLgFAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-24T07:54:56.415Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
