@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Uni\\Junior\\TMDT\\convert-shop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,20 +15,20 @@
       "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_sidebarview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -42,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
               "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
               "RelativeToolTip": "convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAADwAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwGYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T08:46:49.265Z",
               "IsPinned": true,
@@ -60,15 +64,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Category.cs",
-              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "convert-shop\\Models\\Category.cs",
-              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
-              "RelativeToolTip": "convert-shop\\Models\\Category.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T08:53:41.878Z",
+              "DocumentIndex": 0,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T15:56:33.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Edit.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T10:38:54.346Z",
               "EditorCaption": ""
             },
             {
@@ -77,45 +94,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "convert-shop\\Models\\Category.cs",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
+              "RelativeToolTip": "convert-shop\\Models\\Category.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T08:53:41.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
               "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
               "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAuwGgAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-28T02:43:24.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
               "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
               "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwB8AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-28T04:08:30.071Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
-              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
-              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
-              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-28T03:57:16.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "_HeaderNavBar.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
@@ -127,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "_SideBarView.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
@@ -139,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "_AdminLayout.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
