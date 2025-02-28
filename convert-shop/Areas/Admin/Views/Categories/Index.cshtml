@@ -1,0 +1,108 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<convert_shop.Models.Category>
+
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Category List";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            transition: 0.3s;
+        }
+
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination a {
+                padding: 8px 12px;
+                margin: 0 5px;
+                border-radius: 5px;
+                background: #f8f9fa;
+                color: #007bff;
+                text-decoration: none;
+            }
+
+            .pagination .active a {
+                background: #007bff;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper px-4 py-2">
+            <h2 class="mb-3">Category List</h2>
+            <div class="d-flex align-items-center justify-content-between">
+                <form action="@Url.Action("Index")" method="get" class="mb-3 w-75">
+                    <div class="input-group w-25">
+                        <input type="text" name="searchString" class="form-control border-primary rounded-start"
+                               placeholder="Search categories..." value="@ViewBag.CurrentFilter" maxlength="100" />
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+
+                <a href="@Url.Action("Create")" class="btn btn-custom mb-3">
+                    <i class="fas fa-plus"></i> Create New
+                </a>
+            </div>
+
+
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Category Name</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.category_name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.createdAt)</td>
+                            <td>
+                                <a href="@Url.Action("Edit", new { id = item.category_id })" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.category_id })" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <p>Total Categories: @Model.TotalItemCount</p>
+
+            <div class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchString = ViewBag.CurrentFilter }))
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -81,3 +81,7 @@ D:\Uni\Junior\TMDT\convert-shop\convert-shop\obj\Debug\convert-shop.csproj.CoreC
 D:\Uni\Junior\TMDT\convert-shop\convert-shop\obj\Debug\convert-.D657B84A.Up2Date
 D:\Uni\Junior\TMDT\convert-shop\convert-shop\obj\Debug\convert-shop.dll
 D:\Uni\Junior\TMDT\convert-shop\convert-shop\obj\Debug\convert-shop.pdb
+D:\Uni\Junior\TMDT\convert-shop\convert-shop\bin\PagedList.dll
+D:\Uni\Junior\TMDT\convert-shop\convert-shop\bin\PagedList.Mvc.dll
+D:\Uni\Junior\TMDT\convert-shop\convert-shop\bin\PagedList.xml
+D:\Uni\Junior\TMDT\convert-shop\convert-shop\bin\PagedList.Mvc.xml

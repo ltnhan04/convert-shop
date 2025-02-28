@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "D:\\Uni\\Junior\\TMDT\\convert-shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|d:\\uni\\junior\\tmdt\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_headernavbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\categories\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_sidebarview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_sidebarview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{97E9844A-4020-477C-A060-C3CE6A884290}|convert-shop\\convert-shop.csproj|solutionrelative:convert-shop\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,28 +47,107 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-24T07:55:29.988Z",
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAIwDwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T08:46:49.265Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "convert-shop\\Models\\Category.cs",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Models\\Category.cs",
+              "RelativeToolTip": "convert-shop\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T08:53:41.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Index.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAuwGcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T02:43:24.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Create.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAuwB8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T04:08:30.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Categories\\Delete.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-28T03:57:16.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_HeaderNavBar.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Shared\\_HeaderNavBar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-25T09:52:05.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_SideBarView.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
+              "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
+              "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
+              "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Shared\\_SideBarView.cshtml",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAuwIgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-25T09:49:45.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "_AdminLayout.cshtml",
               "DocumentMoniker": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeDocumentMoniker": "convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "ToolTip": "D:\\Uni\\Junior\\TMDT\\convert-shop\\convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
               "RelativeToolTip": "convert-shop\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAEwFAAAAAAAAAAAewLgFAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC0AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-24T07:54:56.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-24T07:54:56.415Z"
             }
           ]
         }
