@@ -1,0 +1,165 @@
+﻿@{
+    string currentController = ViewContext.RouteData.Values["controller"].ToString();
+    string currentAction = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })" class="brand-link">
+        <img src="~/Areas/Admin/Content/dist/img/convert-logo.png" alt="AdminLTE Logo" class="bg-info rounded-circle" style="opacity: .8; width:24%;">
+        <span class="brand-text font-weight-light">Convert Management</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Dashboard", new { area = "Admin" })"
+                       class="nav-link @(currentController == "Dashboard" ? "active" : "")">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+
+                <!-- Category -->
+                <li class="nav-item @(currentController == "Categories" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(currentController == "Categories" ? "active" : "")">
+                        <i class="nav-icon fas fa-tags"></i>
+                        <p>Category <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Create", "Categories", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Create" && currentController == "Categories" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Categories", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "Categories" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Categories</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Products -->
+                <li class="nav-item @(currentController == "Products" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(currentController == "Products" ? "active" : "")">
+                        <i class="nav-icon fas fa-box-open"></i>
+                        <p>Products <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "ProductStatus", new { area = "Admin" })" class="nav-link @(currentAction == "Index" && currentController == "ProductStatus" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Product Status</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "ProductColors", new { area = "Admin" })" class="nav-link @(currentAction == "Index" && currentController == "ProductColors" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Product Colors</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "ProductImages", new { area = "Admin" })" class="nav-link @(currentAction == "Index" && currentController == "ProductImages" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Product Images</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Products", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "Products" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Products</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Orders -->
+                <li class="nav-item @(currentController == "Orders" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(currentController == "Orders" ? "active" : "")">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
+                        <p>Orders <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Orders", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "Orders" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List Orders</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Coupons -->
+                <li class="nav-item @(currentController == "Coupons" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(currentController == "Coupons" ? "active" : "")">
+                        <i class="nav-icon fas fa-ticket-alt"></i>
+                        <p>Coupons <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Create", "Coupons", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Create" && currentController == "Coupons" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Create Coupon</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Coupons", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "Coupons" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Coupon List</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Reviews -->
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Reviews", new { area = "Admin" })"
+                       class="nav-link @(currentController == "Reviews" ? "active" : "")">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>Reviews</p>
+                    </a>
+                </li>
+
+                <!-- Customers -->
+                <li class="nav-item @(currentController == "Customers" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(currentController == "Customers" ? "active" : "")">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Customers <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Customers", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "Customers" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List Customer</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Messages -->
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Messages", new { area = "Admin" })"
+                       class="nav-link @(currentController == "Messages" ? "active" : "")">
+                        <i class="nav-icon fas fa-envelope"></i>
+                        <p>Messages</p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>

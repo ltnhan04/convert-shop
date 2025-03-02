@@ -1,0 +1,77 @@
+﻿@model convert_shop.Models.ProductImage
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper px-4 py-2">
+
+            @using (Html.BeginForm("Create", "ProductImages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="d-flex align-items-center justify-content-between">
+                    <h2 class="text-primary mb-3"><i class="fas fa-edit"></i> Create New Image</h2>
+                    <a href="@Url.Action("Index")" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold">Image First</label>
+                    <input type="file" name="ImageFile1" id="imageInput1" accept="image/*" class="form-control" required />
+                    <span class="text-danger">@Html.ValidationMessage("ImageFile1")</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold">Image Second</label>
+                    <input type="file" name="ImageFile2" id="imageInput2" accept="image/*" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold">Image Third</label>
+                    <input type="file" name="ImageFile3" id="imageInput3" accept="image/*" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+            }
+        </div>
+    </div>
+
+    <script>
+        function readURL(input, previewId) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $(previewId).attr('src', e.target.result).show();
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#imageInput1").change(function () {
+                readURL(this, "#previewImage1");
+            });
+
+            $("#imageInput2").change(function () {
+                readURL(this, "#previewImage2");
+            });
+
+            $("#imageInput3").change(function () {
+                readURL(this, "#previewImage3");
+            });
+        });
+    </script>
+</body>
+</html>

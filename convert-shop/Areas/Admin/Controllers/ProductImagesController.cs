@@ -1,0 +1,168 @@
+﻿using convert_shop.Models;
+using PagedList;
+using System;
+using System.Data.Entity;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+
+namespace convert_shop.Areas.Admin.Controllers
+{
+    public class ProductImagesController : Controller
+    {
+        private ConvertManagementEntities db = new ConvertManagementEntities();
+
+        // GET: Admin/ProductImages
+        public ActionResult Index(string searchString, int? page)
+        {
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            var images = db.ProductImages.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                images = images.Where(c => c.image_url_1.Contains(searchString));
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            return View(images.OrderBy(c => c.image_url_1).ToPagedList(pageNumber, pageSize));
+        }
+
+
+        // GET: Admin/ProductImages/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Admin/ProductImages/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ProductImage productImage)
+        {
+            try
+            {
+                string uploadPath = Server.MapPath("~/Content/Uploads/");
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+
+                if (productImage.ImageFile1 != null && productImage.ImageFile1.ContentLength > 0)
+                {
+                    string fileName1 = Path.GetFileName(productImage.ImageFile1.FileName);
+                    string path1 = Path.Combine(uploadPath, fileName1);
+                    System.Diagnostics.Debug.WriteLine("File saved: " + path1);
+                    productImage.ImageFile1.SaveAs(path1);
+                    productImage.image_url_1 = "/Uploads/" + fileName1;
+                }
+                else if (string.IsNullOrEmpty(productImage.image_url_1))
+                {
+                    ModelState.AddModelError("ImageFile1", "Please upload the first image.");
+                }
+
+                if (productImage.ImageFile2 != null && productImage.ImageFile2.ContentLength > 0)
+                {
+                    string fileName2 = Path.GetFileName(productImage.ImageFile2.FileName);
+                    string path2 = Path.Combine(uploadPath, fileName2);
+                    productImage.ImageFile2.SaveAs(path2);
+                    productImage.image_url_2 = "/Uploads/" + fileName2;
+                    Console.WriteLine(productImage.image_url_2 = "/Uploads/" + fileName2);
+                }
+
+                if (productImage.ImageFile3 != null && productImage.ImageFile3.ContentLength > 0)
+                {
+                    string fileName3 = Path.GetFileName(productImage.ImageFile3.FileName);
+                    string path3 = Path.Combine(uploadPath, fileName3);
+                    productImage.ImageFile3.SaveAs(path3);
+                    productImage.image_url_3 = "/Uploads/" + fileName3;
+                }
+
+
+                if (ModelState.IsValid)
+                {
+                    db.ProductImages.Add(productImage);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
+            return View(productImage);
+        }
+
+        // GET: Admin/ProductImages/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductImage productImage = db.ProductImages.Find(id);
+            if (productImage == null)
+            {
+                return HttpNotFound();
+            }
+            return View(productImage);
+        }
+
+        // POST: Admin/ProductImages/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "image_url_1,image_url_2,image_url_3")] ProductImage productImage)
+        {
+            if (ModelState.IsValid)
+            {
+                productImage.updatedAt = DateTime.Now;
+                db.Entry(productImage).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(productImage);
+        }
+
+        // GET: Admin/ProductImages/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductImage productImage = db.ProductImages.Find(id);
+            if (productImage == null)
+            {
+                return HttpNotFound();
+            }
+            return View(productImage);
+        }
+
+        // POST: Admin/ProductImages/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            ProductImage productImage = db.ProductImages.Find(id);
+            db.ProductImages.Remove(productImage);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}
