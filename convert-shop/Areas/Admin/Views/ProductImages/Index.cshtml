@@ -52,18 +52,7 @@
     <div class="wrapper">
         <div class="content-wrapper px-4 py-2">
             <h2 class="mb-3">Image List</h2>
-            <div class="d-flex align-items-center justify-content-between">
-                <form action="@Url.Action("Index")" method="get" class="mb-3 w-75">
-                    <div class="input-group w-25">
-                        <input type="text" name="searchString" class="form-control border-primary rounded-start"
-                               placeholder="Search images..." value="@ViewBag.CurrentFilter" maxlength="100" />
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-
-
+            <div class="d-flex align-items-center justify-content-end">
                 <a href="@Url.Action("Create")" class="btn btn-custom mb-3">
                     <i class="fas fa-plus"></i> Create New Image
                 </a>

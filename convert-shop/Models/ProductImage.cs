@@ -48,3 +48,4 @@ namespace convert_shop.Models
         public HttpPostedFileBase ImageFile3 { get; set; }
     }
 }
+

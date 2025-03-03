@@ -1,99 +1,74 @@
 ﻿@model convert_shop.Models.Product
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Product Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Product Details</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper px-4 py-2">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="text-primary"><i class="fas fa-info-circle"></i> Product Details</h2>
+                <a href="@Url.Action("Index")" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Product Name</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.product_name)</dd>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.product_name)
-        </dt>
+                <dt class="col-sm-4">Slug</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.slug)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_name)
-        </dd>
+                <dt class="col-sm-4">Description</dt>
+                <dd class="col-sm-8">@Html.Raw(Model.product_description)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_description)
-        </dt>
+                <dt class="col-sm-4">Price</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.product_price)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_description)
-        </dd>
+                <dt class="col-sm-4">Quantity</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.quantity)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.product_price)
-        </dt>
+                <dt class="col-sm-4">Category</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Category.category_name)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.product_price)
-        </dd>
+                <dt class="col-sm-4">Color</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductColor.color_name)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.quantity)
-        </dt>
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductStatu.status_name)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.quantity)
-        </dd>
+                <dt class="col-sm-4">Created At</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.createdAt)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.createdAt)
-        </dt>
+                <dt class="col-sm-4">Updated At</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.updatedAt)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.createdAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.updatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.updatedAt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.category_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.category_name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductColor.color_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductColor.color_name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductImage.image_url_1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductImage.image_url_1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProductStatu.status_name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProductStatu.status_name)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.product_id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <dt class="col-sm-4">Image</dt>
+                <dd class="col-sm-8">
+                    <img src="@Url.Content("/Content" + @Model.ProductImage.image_url_1)" alt="Product Image" class="img-fluid" style="max-height: 200px;" />
+                </dd>
+            </dl>
+            <div class="mt-4">
+                <a href="@Url.Action("Edit", new { id = Model.product_id })" class="btn btn-primary">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

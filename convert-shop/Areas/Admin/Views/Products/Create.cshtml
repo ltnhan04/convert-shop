@@ -5,112 +5,121 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create</h2>
+<div class="wrapper">
+    <div class="content-wrapper px-4 py-2">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Product</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.product_id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.product_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.product_name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.product_name, "", new { @class = "text-danger" })
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h2 class="text-primary"><i class="fas fa-plus-circle"></i> Create New Product</h2>
+                <a href="@Url.Action("Index")" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.product_description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.product_description, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.product_price, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.product_price, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Product Name</label>
+                        @Html.TextBoxFor(model => model.product_name, new { @class = "form-control", placeholder = "Enter product name", id = "product_name" })
+                        @Html.ValidationMessageFor(model => model.product_name, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.category_id, "category_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("category_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.category_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Slug</label>
+                        @Html.TextBoxFor(model => model.slug, new { @class = "form-control", placeholder = "Auto-generated slug", id = "slug", @readonly = "readonly" })
+                        @Html.ValidationMessageFor(model => model.slug, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.image_id, "image_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("image_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.image_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.color_id, "color_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("color_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.color_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        @Html.TextAreaFor(model => model.product_description, new { @class = "form-control", rows = 4, placeholder = "Enter product description", @id = "product_description" })
+                        @Html.ValidationMessageFor(model => model.product_description, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.status_id, "status_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("status_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.status_id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        @Html.EditorFor(model => model.product_price, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter product price", maxLength = "12" } })                        @Html.ValidationMessageFor(model => model.product_price, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Quantity</label>
+                        @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter quantity" } })
+                        @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.createdAt, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.createdAt, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.createdAt, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        @Html.DropDownList("category_id", null, "-- Select Category --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.category_id, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.updatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.updatedAt, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.updatedAt, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image</label>
+                        @Html.DropDownList("image_id", null, "-- Select Image --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.image_id, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <div class="mb-3">
+                        <label class="form-label">Color</label>
+                        @Html.DropDownList("color_id", null, "-- Select Color --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.color_id, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        @Html.DropDownList("status_id", null, "-- Select Status --", new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.status_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Create
+                </button>
+            </div>
+        }
     </div>
-}
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('product_description');
+    </script>
+    <script>
+        function generateSlug(str) {
+            return str
+                .toLowerCase()
+                .trim()
+                .replace(/á|à|ả|ã|ạ|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/g, "a")
+                .replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/g, "e")
+                .replace(/i|í|ì|ỉ|ĩ|ị/g, "i")
+                .replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/g, "o")
+                .replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/g, "u")
+                .replace(/ý|ỳ|ỷ|ỹ|ỵ/g, "y")
+                .replace(/đ/g, "d")
+                .replace(/[^a-z0-9 -]/g, "") 
+                .replace(/\s+/g, "-") 
+                .replace(/-+/g, "-"); 
+        }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+        document.addEventListener("DOMContentLoaded", function () {
+            const productNameInput = document.getElementById("product_name");
+            const slugInput = document.getElementById("slug");
+
+            if (productNameInput && slugInput) {
+                productNameInput.addEventListener("input", function () {
+                    slugInput.value = generateSlug(this.value);
+                });
+            }
+        });
+    </script>
+
+
 </div>

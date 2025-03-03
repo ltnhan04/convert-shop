@@ -153,6 +153,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="ConvertManagementModel.Product">
         <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="slug" ColumnName="slug" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="product_name" ColumnName="product_name" />
           <ScalarProperty Name="product_description" ColumnName="product_description" />

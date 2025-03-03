@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ConvertManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ConvertManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="category_id" />
@@ -157,7 +157,7 @@
           <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="product_name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="product_description" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="product_price" Type="int" Nullable="false" />
+          <Property Name="product_price" Type="int" />
           <Property Name="category_id" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="image_id" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="color_id" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -165,6 +165,7 @@
           <Property Name="quantity" Type="int" Nullable="false" />
           <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="slug" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ProductColor">
           <Key>
@@ -574,8 +575,7 @@
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ConvertManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -750,7 +750,7 @@
           <Property Name="product_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="product_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="product_price" Type="Int32" Nullable="false" />
+          <Property Name="product_price" Type="Int32" />
           <Property Name="category_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="image_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="color_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -765,6 +765,7 @@
           <NavigationProperty Name="ProductStatu" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Product" FromRole="Product" ToRole="Review" />
           <NavigationProperty Name="Coupons" Relationship="Self.CouponProduct" FromRole="Product" ToRole="Coupon" />
+          <Property Name="slug" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ProductColor">
           <Key>
@@ -1313,6 +1314,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="ConvertManagementModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="slug" ColumnName="slug" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="product_name" ColumnName="product_name" />
                 <ScalarProperty Name="product_description" ColumnName="product_description" />

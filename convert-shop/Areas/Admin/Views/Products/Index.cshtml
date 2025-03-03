@@ -1,88 +1,208 @@
-﻿@model IEnumerable<convert_shop.Models.Product>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<convert_shop.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Product List";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            transition: 0.3s;
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.product_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.product_price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.updatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.category_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductColor.color_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage.image_url_1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductStatu.status_name)
-        </th>
-        <th></th>
-    </tr>
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.product_price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.updatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.category_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductColor.color_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductImage.image_url_1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductStatu.status_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.product_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.product_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.product_id })
-        </td>
-    </tr>
-}
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-</table>
+            .pagination a {
+                padding: 8px 12px;
+                margin: 0 5px;
+                border-radius: 5px;
+                background: #f8f9fa;
+                color: #007bff;
+                text-decoration: none;
+            }
+
+            .pagination .active a {
+                background: #007bff;
+                color: white;
+            }
+
+        .table-responsive {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-nowrap {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper px-4 py-3">
+            <div class="d-flex align-items-center justify-content-between">
+
+                <h2 class="mb-3"><i class="fas fa-box"></i> Product List</h2>
+
+                <a href="@Url.Action("Create")" class="btn btn-custom mb-3">
+                    <i class="fas fa-plus"></i> Create New Product
+                </a>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <form action="@Url.Action("Index")" method="get" class="mb-4">
+                    <div class="row g-3 align-items-end">
+                        <!-- Search -->
+                        <div class="col-lg-2 col-md-4">
+                            <label for="searchString" class="form-label fw-bold">Search</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" name="searchString" class="form-control"
+                                       placeholder="Search product..." value="@ViewBag.CurrentFilter" />
+                            </div>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="col-lg-2 col-md-4">
+                            <label for="categoryId" class="form-label fw-bold">Category</label>
+                            @Html.DropDownList("categoryId", ViewBag.Categories as SelectList, "All Categories",
+                                new { @class = "form-select text-left" })
+                        </div>
+
+                        <!-- Color Filter -->
+                        <div class="col-lg-2 col-md-4">
+                            <label for="colorId" class="form-label fw-bold">Color</label>
+                            @Html.DropDownList("colorId", ViewBag.Colors as SelectList, "All Colors",
+                                new { @class = "form-select text-left" })
+                        </div>
+
+                        <!-- Status Filter -->
+                        <div class="col-lg-2 col-md-4">
+                            <label for="statusId" class="form-label fw-bold">Status</label>
+                            @Html.DropDownList("statusId", ViewBag.Statuses as SelectList, "All Statuses",
+                                new { @class = "form-select text-left" })
+                        </div>
+
+                        <!-- Min Price -->
+                        <div class="col-lg-1 col-md-4">
+                            <label for="minPrice" class="form-label fw-bold">Min Price</label>
+                            <input type="number" name="minPrice" class="form-control"
+                                   placeholder="Min" value="@ViewBag.CurrentMinPrice" />
+                        </div>
+
+                        <!-- Max Price -->
+                        <div class="col-lg-1 col-md-4">
+                            <label for="maxPrice" class="form-label fw-bold">Max Price</label>
+                            <input type="number" name="maxPrice" class="form-control"
+                                   placeholder="Max" value="@ViewBag.CurrentMaxPrice" />
+                        </div>
+
+                        <!-- Filter Button -->
+                        <div class="col-lg-2 col-md-6">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-filter"></i> 
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+
+            <table class="table table-bordered table-hover text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Category</th>
+                        <th>Color</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.product_name)</td>
+                            <td class="text-truncate" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                @Html.Raw(item.product_description)
+                            </td>
+                            <td><strong class="text-success">@String.Format("{0:N0} VND", item.product_price)</strong></td>
+                            <td>@Html.DisplayFor(modelItem => item.quantity)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Category.category_name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ProductColor.color_name)</td>
+                            <td>
+                                <img src="@Url.Content("/Content" + @item.ProductImage.image_url_1) " class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;" />
+                            </td>
+                            <td>
+                                @if (item.ProductStatu.status_name == "Active")
+                                {
+                                    <span class="badge bg-success">@item.ProductStatu.status_name</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">@item.ProductStatu.status_name</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="@Url.Action("Edit", new { id = item.product_id })" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <a href="@Url.Action("Details", new { id = item.product_id })" class="btn btn-dark btn-sm">
+                                        <i class="fas fa-info-circle"></i> Details
+                                    </a>
+                                    <a href="@Url.Action("Delete", new { id = item.product_id })" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <p>Total Products: @Model.TotalItemCount</p>
+
+            <div class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new
+                {
+                    page,
+                    searchString = ViewBag.CurrentFilter,
+                    categoryId = ViewBag.CurrentCategory,
+                    colorId = ViewBag.CurrentColor,
+                    statusId = ViewBag.CurrentStatus,
+                    minPrice = ViewBag.CurrentMinPrice,
+                    maxPrice = ViewBag.CurrentMaxPrice
+                }))
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
