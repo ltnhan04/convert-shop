@@ -27,19 +27,23 @@
 
                 <div class="form-group">
                     <label class="font-weight-bold">Image First</label>
+                    <img id="previewImage1" src="#" alt="Image 1" style="max-width: 100px; height: auto; display: none;" />
                     <input type="file" name="ImageFile1" id="imageInput1" accept="image/*" class="form-control" required />
                     <span class="text-danger">@Html.ValidationMessage("ImageFile1")</span>
                 </div>
 
                 <div class="form-group">
                     <label class="font-weight-bold">Image Second</label>
+                    <img id="previewImage2" src="#" alt="Image 2" style="max-width: 100px; height: auto; display: none;" />
                     <input type="file" name="ImageFile2" id="imageInput2" accept="image/*" class="form-control" />
                 </div>
 
                 <div class="form-group">
                     <label class="font-weight-bold">Image Third</label>
+                    <img id="previewImage3" src="#" alt="Image 3" style="max-width: 100px; height: auto; display: none;" />
                     <input type="file" name="ImageFile3" id="imageInput3" accept="image/*" class="form-control" />
                 </div>
+
 
                 <button type="submit" class="btn btn-primary">Create</button>
             }

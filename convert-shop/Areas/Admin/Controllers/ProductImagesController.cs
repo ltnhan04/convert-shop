@@ -14,16 +14,11 @@ namespace convert_shop.Areas.Admin.Controllers
         private ConvertManagementEntities db = new ConvertManagementEntities();
 
         // GET: Admin/ProductImages
-        public ActionResult Index(string searchString, int? page)
+        public ActionResult Index(int? page)
         {
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             var images = db.ProductImages.AsQueryable();
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                images = images.Where(c => c.image_url_1.Contains(searchString));
-            }
-            ViewBag.CurrentFilter = searchString;
 
             return View(images.OrderBy(c => c.image_url_1).ToPagedList(pageNumber, pageSize));
         }
@@ -70,7 +65,6 @@ namespace convert_shop.Areas.Admin.Controllers
                     string path2 = Path.Combine(uploadPath, fileName2);
                     productImage.ImageFile2.SaveAs(path2);
                     productImage.image_url_2 = "/Uploads/" + fileName2;
-                    Console.WriteLine(productImage.image_url_2 = "/Uploads/" + fileName2);
                 }
 
                 if (productImage.ImageFile3 != null && productImage.ImageFile3.ContentLength > 0)
@@ -118,12 +112,47 @@ namespace convert_shop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "image_url_1,image_url_2,image_url_3")] ProductImage productImage)
+        public ActionResult Edit(ProductImage productImage)
         {
+            var existingImage = db.ProductImages.Find(productImage.image_id);
+            if (existingImage == null)
+            {
+                return HttpNotFound();
+            }
+            string uploadPath = Server.MapPath("~/Content/Uploads/");
+            if (!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);
+            }
+            if (productImage.ImageFile1 != null && productImage.ImageFile1.ContentLength > 0)
+            {
+                string fileName1 = Path.GetFileName(productImage.ImageFile1.FileName);
+                string filePath1 = Path.Combine(uploadPath, fileName1);
+                productImage.ImageFile1.SaveAs(filePath1);
+                existingImage.image_url_1 = "/Uploads/" + fileName1;
+            }
+
+            if (productImage.ImageFile2 != null && productImage.ImageFile2.ContentLength > 0)
+            {
+                string fileName2 = Path.GetFileName(productImage.ImageFile2.FileName);
+                string filePath2 = Path.Combine(uploadPath, fileName2);
+                productImage.ImageFile2.SaveAs(filePath2);
+                existingImage.image_url_2 = "/Uploads/" + fileName2;
+            }
+
+            if (productImage.ImageFile3 != null && productImage.ImageFile3.ContentLength > 0)
+            {
+                string fileName3 = Path.GetFileName(productImage.ImageFile3.FileName);
+                string filePath3 = Path.Combine(uploadPath, fileName3);
+                productImage.ImageFile3.SaveAs(filePath3);
+                existingImage.image_url_3 = "/Uploads/" + fileName3;
+            }
+
+
             if (ModelState.IsValid)
             {
-                productImage.updatedAt = DateTime.Now;
-                db.Entry(productImage).State = EntityState.Modified;
+                existingImage.updatedAt = DateTime.Now;
+                db.Entry(existingImage).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

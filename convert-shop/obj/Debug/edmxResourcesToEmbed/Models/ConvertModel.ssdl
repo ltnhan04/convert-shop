@@ -152,7 +152,7 @@
     <Property Name="product_id" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="product_name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="product_description" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="product_price" Type="int" Nullable="false" />
+    <Property Name="product_price" Type="int" />
     <Property Name="category_id" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="image_id" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="color_id" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -160,6 +160,7 @@
     <Property Name="quantity" Type="int" Nullable="false" />
     <Property Name="createdAt" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="updatedAt" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="slug" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="ProductColor">
     <Key>
