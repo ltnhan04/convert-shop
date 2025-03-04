@@ -1,0 +1,92 @@
+﻿@model convert_shop.Models.Customer
+
+@{
+    ViewBag.Title = "Create Customer";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper ">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="content-wrapper px-4 py-3">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h2 class="text-primary"><i class="fas fa-user-plus"></i> Create Customer</h2>
+                <a href="@Url.Action("Index")" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Customer Name</label>
+                    @Html.EditorFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Email</label>
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Phone Number</label>
+                    @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Password</label>
+                    @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Address</label>
+                    @Html.TextAreaFor(model => model.address, new { @class = "form-control", rows = 2, placeholder = "Enter customer address" })
+                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Customer Type</label>
+                    @Html.DropDownList("customer_type_id", null, htmlAttributes: new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.customer_type_id, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Role</label>
+                    @Html.DropDownList("role_id", null, htmlAttributes: new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.role_id, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Loyalty Points</label>
+                    @Html.EditorFor(model => model.loyaltyPoints, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.loyaltyPoints, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Used Points</label>
+                    @Html.EditorFor(model => model.usedPoint, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.usedPoint, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Ranking</label>
+                    @Html.DropDownList("customer_ranking_id", null, htmlAttributes: new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.customer_ranking_id, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-12 text-end mt-3">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="fas fa-save"></i> Create
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

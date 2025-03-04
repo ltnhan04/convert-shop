@@ -1,0 +1,161 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<convert_shop.Models.Customer>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Customer List";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            transition: 0.3s;
+        }
+
+            .btn-custom:hover {
+                background-color: #0056b3;
+            }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination a {
+                padding: 8px 12px;
+                margin: 0 5px;
+                border-radius: 5px;
+                background: #f8f9fa;
+                color: #007bff;
+                text-decoration: none;
+            }
+
+            .pagination .active a {
+                background: #007bff;
+                color: white;
+            }
+
+        .table-responsive {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-nowrap {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-wrapper px-4 py-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="mb-3"><i class="fas fa-users"></i> Customer List</h2>
+                <a href="@Url.Action("Create")" class="btn btn-custom mb-3">
+                    <i class="fas fa-plus"></i> Create New Customer
+                </a>
+            </div>
+
+            <form action="@Url.Action("Index")" method="get" class="mb-4">
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg-3 col-md-4">
+                        <label class="form-label fw-bold">Search</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" name="searchString" class="form-control"
+                                   placeholder="Search customer..." value="@ViewBag.CurrentFilter" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <label class="form-label fw-bold">Ranking</label>
+                        @Html.DropDownList("customerRankingId", ViewBag.CustomerRanking as SelectList, "All Rankings",
+                            new { @class = "form-select text-left" })
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <label class="form-label fw-bold">Customer Type</label>
+                        @Html.DropDownList("customerTypeId", ViewBag.CustomerType as SelectList, "All Types",
+                            new { @class = "form-select text-left" })
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Loyalty Points</th>
+                            <th>Used Points</th>
+                            <th>Ranking</th>
+                            <th>Customer Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.customer_name</td>
+                                <td>@item.email</td>
+                                <td>@item.phone_number</td>
+                                <td>@item.address</td>
+                                <td>@item.loyaltyPoints</td>
+                                <td>@item.usedPoint</td>
+                                <td>@Html.DisplayFor(modelItem => item.CustomerRanking.customer_ranking_name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CustomerType.customer_type)</td>
+
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="@Url.Action("Edit", new { id = item.customer_id })" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <a href="@Url.Action("Details", new { id = item.customer_id })" class="btn btn-dark btn-sm">
+                                            <i class="fas fa-info-circle"></i> Details
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Total Customers: @Model.TotalItemCount</p>
+
+            <div class="pagination">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new
+                {
+                    page,
+                    searchString = ViewBag.CurrentFilter,
+                    customerRankingId = ViewBag.CurrentCustomerRanking,
+                    customerTypeId = ViewBag.CurrentCustomerType
+                }))
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

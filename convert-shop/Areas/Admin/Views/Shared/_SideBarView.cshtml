@@ -140,10 +140,24 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="@Url.Action("Index", "CustomerRankings", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "CustomerRankings" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Rankings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "CustomerTypes", new { area = "Admin" })"
+                               class="nav-link @(currentAction == "Index" && currentController == "CustomerTypes" ? "active" : "")">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Customer Types</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="@Url.Action("Index", "Customers", new { area = "Admin" })"
                                class="nav-link @(currentAction == "Index" && currentController == "Customers" ? "active" : "")">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>List Customer</p>
+                                <p>All Customers</p>
                             </a>
                         </li>
                     </ul>

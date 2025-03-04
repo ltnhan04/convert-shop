@@ -19,32 +19,32 @@
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
-                    <div class="d-flex align-items-center justify-content-between">
+            <div class="form-horizontal">
+                <div class="d-flex align-items-center justify-content-between">
 
-                        <h2 class="text-primary mb-3"><i class="fas fa-edit"></i> Create New Category</h2>
-                        <a href="@Url.Action("Index")" class="btn btn-secondary">
-                            <i class="fas fa-arrow-left"></i> Back to List
-                        </a>
-                    </div>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <h2 class="text-primary mb-3"><i class="fas fa-edit"></i> Create New Category</h2>
+                    <a href="@Url.Action("Index")" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to List
+                    </a>
+                </div>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    <div class="form-group">
-                        <div class="mb-2 text-black font-weight-bold">Category Name</div>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.category_name, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.category_name, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-primary" />
-                        </div>
+                <div class="form-group">
+                    <div class="mb-2 text-black font-weight-bold">Category Name</div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.category_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.category_name, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
             }
 
 
